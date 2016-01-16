@@ -36,3 +36,16 @@ function surpriseSurprise(generate) {
 surpriseSurprise(false);
 ```
 Now it is clear why you get `undefined`. This is called `Variable Hoisting`.
+
+Introducing Block Scoped Variable
+=================================
+From `ES2015` aka `ES6` Javascript introduced block-scoped variables via two keyword `let` and `const`. Block scopes in
+Javascript are created:
+                                                                                                        
+1. Inside a function
+1. Inside of a block (enclosing statement(s) by the `{` and `}`) 
+
+### Let Declaration
+
+
+
