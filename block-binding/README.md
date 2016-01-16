@@ -13,7 +13,7 @@ function surpriseSurprise(generate) {
    return number;
 }
 //execute function
-surpriseSurprise(false);
+surpriseSurprise(false); //prints undefined
 ```
 
 It will give you a big `undefined`. Surprised!!!
@@ -46,6 +46,45 @@ Javascript are created:
 1. Inside of a block (enclosing statement(s) by the `{` and `}`) 
 
 ### Let Declaration
-
-
-
+`let` syntax is same as `var` and can be just in replacement with `var` in most cases. Let's just replace the `var` with
+`let` in above example and see what happened.
+```js
+let number = 10;
+function surpriseSurprise(generate) {
+   if(generate) {
+     let number = Math.random();
+     return number;
+   }
+   
+   return number;
+}
+//execute function
+surpriseSurprise(false); //prints 10;
+```
+As you see now we get the expected result. This is because `let` variables are not hoisted. Let's check another example
+```js
+function letScopeExplanation() {
+  let outside = 10;
+  
+  //define a block scope
+  {
+    let firstBlock = 1;
+    //some code...
+    console.log(firstBlock); // 1
+    console.log(outside); //10
+  }
+  
+  //another block scope
+  {
+     let secondBlock = 2;
+     //some code...
+     console.log(secondBlock); // 2
+     console.log(outside); //10
+     console.log(firstBlock); //Uncaught ReferenceError: nested1 is not defined
+  }
+  
+  console.log('outside ', outside); //10
+  //nested1, nested2 is not available and thow ReferenceError
+}
+letScopeExplanation();
+```
